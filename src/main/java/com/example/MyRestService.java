@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api")
 public class MyRestService {
     @GetMapping("test")
-    public String testRequest(@RequestParam("name") String name){
+    public String testRequest(@RequestParam("name") String name) {
         return "Hello, " + name + "!";
     }
 }
