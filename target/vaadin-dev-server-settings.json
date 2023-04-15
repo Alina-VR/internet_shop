@@ -1,0 +1,18 @@
+{
+  "frontendFolder": "/home/alina/IdeaProjects/InternetShop/./frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/home/alina/IdeaProjects/InternetShop/./frontend/generated/jar-resources",
+  "staticOutput": "/home/alina/IdeaProjects/InternetShop/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/home/alina/IdeaProjects/InternetShop/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/home/alina/IdeaProjects/InternetShop/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/home/alina/IdeaProjects/InternetShop/src/main/dev-bundle/webapp",
+  "devBundleStatsOutput": "/home/alina/IdeaProjects/InternetShop/src/main/dev-bundle/config",
+  "jarResourcesFolder": "/home/alina/IdeaProjects/InternetShop/./frontend/generated/jar-resources",
+  "generatedFlowImportsFolder": "target/frontend",
+  "themeName": "",
+  "clientServiceWorkerSource": "/home/alina/IdeaProjects/InternetShop/target/sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
