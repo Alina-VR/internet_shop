@@ -33,4 +33,9 @@ public class Product {
 
     @Column(name = "seller")
     private String seller;
+
+
+//    String getInformation() {
+//
+//    }
 }

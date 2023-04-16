@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>
+        InternetShop
+    </title>
 </head>
 <body>
+<h1>Internet Shop</h1>
+<hr>
+<h4>Information about product</h4>
+<h4><p th:text="${product.getTitle()}"/></h4>
 
+<b>Title: </b><p th:text="${product.getTitle()}"/><br>
+<b>Price: </b><p th:text="${product.getPrice()}"/><br>
+<b>Description: </b><p th:text="${product.getDescription}"/><br>
+<b>Seller: </b><p th:text="${product.getSeller()}"/><br>
+<hr>
+<h4>Delete product</h4>
+<form action="menu/product/delete/@{product.id}" method="post">
+    <input type="submit" value="Delete"/>
+</form>
 </body>
 </html>

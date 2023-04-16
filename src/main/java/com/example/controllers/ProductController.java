@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/")
-    public String products(@RequestParam(name = "title", required = false) String title, Model model) {
-        model.addAttribute("products", productService.listProducts(title));
+    @GetMapping("/menu")
+    public String products(Model model) {
+        model.addAttribute("products", productService.listProducts());
         return "products";
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/menu/product/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
         Product prod =  productService.getProductById(id);
         model.addAttribute("product", prod);
@@ -32,13 +32,13 @@ public class ProductController {
         return "product-info";
     }
 
-    @PostMapping("/product/create")
+    @PostMapping("menu/product/create")
     public String createProduct(Product product) {
         productService.saveProduct(product);
-        return "redirect:/";
+        return "redirect:/menu";
     }
 
-    @PostMapping("/product/delete/{id}")
+    @PostMapping("menu/product/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return "redirect:/";
