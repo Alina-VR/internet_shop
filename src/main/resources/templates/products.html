@@ -8,10 +8,8 @@
 <body>
 <h1>Internet Shop</h1> <hr>
 <h4>Menu</h4>
-<#list products as product>
-<div>
-
-</div>
-</#list>
+<ul>
+    <li th:each="product : ${products}" th:text ="${product.title}"/>
+</ul>
 </body>
 </html>
