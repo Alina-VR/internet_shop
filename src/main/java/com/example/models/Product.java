@@ -11,4 +11,9 @@ public class Product {
     private String description;
     private int price;
     private String seller;
+
+
+//    String getInformation() {
+//
+//    }
 }

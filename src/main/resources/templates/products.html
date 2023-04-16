@@ -9,7 +9,7 @@
 <h1>Internet Shop</h1> <hr>
 <h4>Menu</h4>
 <ul>
-    <li th:each="product : ${products}" th:text ="${product.title}"/>
+    <li th:each="product : ${products}" th:text ="${product.title} + ' price: ' + ${product.price} + ' rub.'"/>
 </ul>
 </body>
 </html>
