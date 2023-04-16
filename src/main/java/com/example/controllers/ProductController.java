@@ -29,7 +29,7 @@ public class ProductController {
     @PostMapping("menu/product/create")
     public String createProduct(Product product) {
         productService.saveProduct(product);
-        return "redirect:/";
+        return "redirect:/menu";
     }
 
     @PostMapping("menu/product/delete/{id}")

@@ -8,12 +8,18 @@
 <body>
 <h1>Internet Shop</h1> <hr>
 <h4>Menu</h4>
-
-
-<ul>
-    <li th:each="product : ${products}" th:text ="${product.title} + ' price: ' + ${product.price} + ' rub.'" />
-    <a href="menu/product/1">More..</a>
-</ul>
-
+<li th:each="product: ${products}">
+    <p th:text="${product.getTitle()} + ' ' + ${product.getPrice()}"/>
+    <a th:href="@{/menu/product/{id}(id=${product.id})}">Edit</a>
+</li>
+<hr>
+<h4>Create new product</h4>
+<form action="menu/product/create" method="post">
+    Title: <input type="text" name="title"/><br><br>
+    Price: <input type="number" name="price"/><br><br>
+    Description: <input type="text" name="description"/><br><br>
+    Seller: <input type="text" name="seller"/><br><br>
+    <input type="submit" value="Create"/>
+</form>
 </body>
 </html>

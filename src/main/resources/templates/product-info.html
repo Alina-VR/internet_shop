@@ -9,18 +9,16 @@
 <h1>Internet Shop</h1>
 <hr>
 <h4>Information about product</h4>
-<h4>${product.name}</h4>
-<b>Title: </b>${product.title}<br>
-<b>Price: </b>${product.price}<br>
-<b>Description: </b>${product.description}<br>
-<b>Seller: </b>${product.seller}<br>
+<h4><p th:text="${product.getTitle()}"/></h4>
+
+<b>Title: </b><p th:text="${product.getTitle()}"/><br>
+<b>Price: </b><p th:text="${product.getPrice()}"/><br>
+<b>Description: </b><p th:text="${product.getDescription}"/><br>
+<b>Seller: </b><p th:text="${product.getSeller()}"/><br>
 <hr>
-<h4>Create new product</h4>
-<form action="/product/create" method="post">
-    Title: <input type="text" name="title"/><br><br>
-    Price: <input type="number" name="price"/><br><br>
-    Description: <input type="text" name="description"/><br><br>
-    Seller: <input type="text" name="seller"/><br><br>
+<h4>Delete product</h4>
+<form action="menu/product/delete/@{product.id}" method="post">
+    <input type="submit" value="Delete"/>
 </form>
 </body>
 </html>
