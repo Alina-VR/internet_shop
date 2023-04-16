@@ -195,7 +195,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-freemarker:3.0.5" level="project" />
-    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.32" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:6.0.7" level="project" />
+    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.32" level="project" />
   </component>
 </module>

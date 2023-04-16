@@ -104,6 +104,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.32</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat</artifactId>
             <version>11.0.0-M4</version>
@@ -120,6 +126,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-mail-sender-javamail</artifactId>
+                <version>1.0-alpha-7</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
