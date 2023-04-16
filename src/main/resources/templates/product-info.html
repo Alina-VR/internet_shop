@@ -17,7 +17,7 @@
 <b>Seller: </b><p th:text="${product.getSeller()}"/><br>
 <hr>
 <h4>Delete product</h4>
-<form action="menu/product/delete/@{product.id}" method="post">
+<form th:action="@{delete/{id}(id=${product.id})}" method="post">
     <input type="submit" value="Delete"/>
 </form>
 </body>
