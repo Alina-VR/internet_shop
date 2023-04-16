@@ -115,6 +115,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.32</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-mail-sender-javamail -->
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-mail-sender-javamail</artifactId>
+                <version>1.0-alpha-7</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
