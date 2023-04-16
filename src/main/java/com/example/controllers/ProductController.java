@@ -14,25 +14,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping("/menu")
     public String products(Model model) {
         model.addAttribute("products", productService.listProducts());
         return "products";
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/menu/product/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.getProductById(id));
         return "product-info";
     }
 
-    @PostMapping("/product/create")
+    @PostMapping("menu/product/create")
     public String createProduct(Product product) {
         productService.saveProduct(product);
         return "redirect:/";
     }
 
-    @PostMapping("/product/delete/{id}")
+    @PostMapping("menu/product/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return "redirect:/";
