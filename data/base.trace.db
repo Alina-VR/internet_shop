@@ -56,3 +56,9 @@ Wrong user name or password [28000-214]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:510)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
 	... 50 more
+2023-04-16 22:09:22 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (candidates are: "products"); SQL statement:
+Select * from products [42103-214]
+2023-04-16 22:09:33 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found (candidates are: "products"); SQL statement:
+Select * from products [42103-214]
