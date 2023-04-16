@@ -6,15 +6,16 @@
     </title>
 </head>
 <body>
-<h1>Internet Shop</h1>
-<hr>
+<h1>Internet Shop</h1> <hr>
+<form action="menu" method="get">
+    Search: <input type="text" name="title"/><br><br>
+    <input type="submit" name="Find"/><br><br>
+</form>
 <h4>Menu</h4>
-<ul>
-    <li th:each="product: ${products}">
-        <p th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + ' rub.'"/>
-        <a th:href="@{/menu/product/{id}(id=${product.id})}">Edit</a>
-    </li>
-</ul>
+<li th:each="product: ${products}">
+    <p th:text="${product.getTitle()} + ' ' + ${product.getPrice()}"/>
+    <a th:href="@{/menu/product/{id}(id=${product.id})}">Edit</a>
+</li>
 <hr>
 <h4>Create new product</h4>
 <form action="menu/product/create" method="post">
