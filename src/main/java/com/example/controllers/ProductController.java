@@ -19,7 +19,7 @@ public class ProductController {
 
     @GetMapping("/menu")
     public String products(@RequestParam(name = "title", required = false) String title, Model model) {
-        model.addAttribute("products", productService.listProducts("title"));
+        model.addAttribute("products", productService.listProducts(title));
         return "products";
     }
 
