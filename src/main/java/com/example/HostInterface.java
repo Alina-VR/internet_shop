@@ -1,8 +1,8 @@
-package com.example;
-
-public interface HostInterface {
-    public void addNewProduct();
-    public void addDescription();
-    public void makeOutOfSelling();
-
-}
+//package com.example;
+//
+//public interface HostInterface {
+//    public void addNewProduct();
+//    public void addDescription();
+//    public void makeOutOfSelling();
+//
+//}
