@@ -15,6 +15,7 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>19</java.version>
+        <compile.release.version>19</compile.release.version>
         <vaadin.version>24.0.4</vaadin.version>
     </properties>
 
@@ -52,10 +53,10 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
         </dependency>
-        <!--		<dependency>-->
-        <!--			<groupId>org.thymeleaf.extras</groupId>-->
-        <!--			<artifactId>thymeleaf-extras-springsecurity6</artifactId>-->
-        <!--		</dependency>-->
+        <!--        		<dependency>-->
+        <!--        			<groupId>org.thymeleaf.extras</groupId>-->
+        <!--        			<artifactId>thymeleaf-extras-springsecurity6</artifactId>-->
+        <!--        		</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -87,21 +88,26 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--		<dependency>-->
-        <!--			<groupId>org.springframework.security</groupId>-->
-        <!--			<artifactId>spring-security-test</artifactId>-->
-        <!--			<scope>test</scope>-->
-        <!--		</dependency>-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-docs API</artifactId>-->
+<!--            <version>6.0.2</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
             <!--            <version>2.7.9</version>-->
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-freemarker</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.freemarker</groupId>
@@ -114,6 +120,10 @@
             <artifactId>tomcat</artifactId>
             <version>11.0.0-M4</version>
             <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
         </dependency>
 
     </dependencies>
