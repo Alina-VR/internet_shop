@@ -9,7 +9,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
