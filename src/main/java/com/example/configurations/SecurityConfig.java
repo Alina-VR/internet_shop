@@ -1,5 +1,6 @@
 package com.example.configurations;
 
+import com.example.models.Role;
 import com.example.services.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -18,9 +19,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/", "/product/**", "/images/**", "/registration")
+            .antMatchers("/", "/product/**", "/images/**", "/registration", "/h2-console", "/h2-console/**")
             .permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().hasRole(Role.USER.getAuthority())
             .and()
             .formLogin()
             .loginPage("/login")
