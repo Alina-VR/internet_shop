@@ -6,11 +6,13 @@ import com.example.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
+@Component
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
