@@ -1,5 +1,6 @@
 package com.example.configurations;
 
+import com.example.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -14,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import com.example.models.Role;
+//import com.example.models.Role;
 import com.example.services.CustomUserDetailsService;
 
 import lombok.RequiredArgsConstructor;

@@ -21,9 +21,8 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/menu")
-    public String products(@RequestParam(name = "title", required = false) String title, Model model, Principal principal) {
+    public String products(@RequestParam(name = "title", required = false) String title, Model model) {
         model.addAttribute("products", productService.listProducts(title));
-        model.addAttribute("user", productService.getUserByPrincipal(principal));
         return "products";
     }
 
@@ -38,7 +37,8 @@ public class ProductController {
 
     @PostMapping("menu/product/create")
     public String createProduct(Product product, Principal principal) throws IOException {
-        productService.saveProduct(principal, product);
+//        productService.saveProduct(principal, product);
+        productService.saveProduct(product);
         return "redirect:/menu";
     }
 

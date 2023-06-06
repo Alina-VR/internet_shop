@@ -29,8 +29,9 @@ public class ProductService {
 
 //    public void saveProduct(Principal principal, Product product, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws
 //        IOException {
-    public void saveProduct(Principal principal, Product product) {
-        product.setUser(getUserByPrincipal(principal));
+//    public void saveProduct(Principal principal, Product product) {
+        public void saveProduct(Product product) {
+//        product.setUser(getUserByPrincipal(principal));
 //        Image image1;
 //        Image image2;
 //        Image image3;
@@ -47,23 +48,23 @@ public class ProductService {
 //            image3 = toImageEntity(file3);
 //            product.addImageToProduct(image3);
 //        }
-        log.info("Saving new Product. Title: {}; Author email: {}", product.getTitle(), product.getUser().getEmail());
+        log.info("Saving new Product. Title: {}; Author email: {}", product.getTitle(), product.getSeller());
         Product productFromDb = productRepository.save(product);
 //        productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
         productRepository.save(product);
     }
 
-    public User getUserByPrincipal(Principal principal) {
-        if (principal == null) return new User();
-        return userRepository.findByEmail(principal.getName());
-    }
+//    public User getUserByPrincipal(Principal principal) {
+//        if (principal == null) return new User();
+//        return userRepository.findByEmail(principal.getName());
+//    }
 
     public void deleteProduct(Long id){
         productRepository.deleteById(id);
     }
 
     public Product getProductById(Long id){
-       return (Product) productRepository.findById(id).orElse(null);
+       return  productRepository.findById(id).orElse(null);
     }
 }
 
