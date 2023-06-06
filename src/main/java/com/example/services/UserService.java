@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CustomUserDetailsService userDetailsService;
 
     public boolean createUser(User user) {
         String userEmail = user.getEmail();

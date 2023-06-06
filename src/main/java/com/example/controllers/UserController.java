@@ -4,6 +4,7 @@ import com.example.models.User;
 import com.example.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 
 @Controller
 //@RequiredArgsConstructor
@@ -62,10 +62,10 @@ public class UserController {
             return "login";
         }
 
-        @PostMapping("/login")
-        public String enter(){
-            return "redirect:/";
-        }
+//        @PostMapping("/login")
+//        public String enter(){
+//            return "redirect:/";
+//        }
 
         @GetMapping("/registration")
         public String registration() {
@@ -73,8 +73,15 @@ public class UserController {
         }
 
 
-        @PostMapping("/registration")
-        public String createUser(User user) {
+        @PostMapping("/doRegister")
+        public String doRegister(@RequestParam("name") String name, @RequestParam("email") String email,
+                @RequestParam("phoneNumber") String phoneNumber, @RequestParam("password") String password)
+        {
+            User user = new User();
+            user.setName(name);
+            user.setPassword(password);
+            user.setEmail(email);
+            user.setPhoneNumber(phoneNumber);
             userService.createUser(user);
             return "redirect:/login";
         }

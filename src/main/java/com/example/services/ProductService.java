@@ -4,7 +4,6 @@ import com.example.models.Product;
 import com.example.models.User;
 import com.example.repositories.ProductRepository;
 import com.example.repositories.UserRepository;
-import com.vaadin.flow.component.html.Image;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
