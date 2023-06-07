@@ -36,12 +36,12 @@ public class AuthProvider implements AuthenticationProvider
      */
     public Authentication authenticate(Authentication authentication)
     {
-        String username = authentication.getName();
+        String name = authentication.getName();
         String password = (String)authentication.getCredentials();
 
-        User user = userRepository.findByEmail(username);
+        User user = userRepository.findByName(name);
 
-        if (user != null && (user.getUsername().equals(username)))
+        if (user != null && (user.getUsername().equals(name)))
         {
             if (!new BCryptPasswordEncoder().matches(password, user.getPassword()))
             {
