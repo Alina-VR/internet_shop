@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        InternetShop
+    </title>
+</head>
+<body>
+<h1>Internet Shop</h1>
+<hr>
+<form action="menu" method="get">
+    Search by title: <input type="text" name="title"/><br><br>
+    <input type="submit" value="Find"/><br><br>
+</form>
+<h4>Menu</h4>
+<ul>
+    <li th:each="product: ${products}">
+        <p th:text="${product.getTitle()} + ' ' + ${product.getPrice()} + ' rub.'"/>
+        <a th:href="@{/menu/product/{id}(id=${product.id})}">More information...</a>
+    </li>
+</ul>
+<if user.email??>
+    <hr>
+    <h4>Create new product</h4>
+    <form action="menu/product/create" method="post">
+        Title: <input type="text" name="title"/><br><br>
+        Price: <input type="number" name="price"/><br><br>
+        Description: <input type="text" name="description"/><br><br>
+        Seller: <input type="text" name="seller"/><br><br>
+        <input type = "hidden" name ="_csrf" value="${_csrf.token}">
+        <input type="submit" value="Create"/>
+    </form>
+    <hr>
+    <a href="/">Back</a><br>
+</if>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        InternetShop
+    </title>
+</head>
+<body>
+<h1>Internet Shop</h1>
+<hr>
+<h4>Login</h4>
+<form action="/login_process" method="post">
+    User name: <input type="text" name="name"><br><br>
+    Password: <input type="password" name="password"><br><br>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Sign in"/>
+</form>
+<a href="/registration">Sign up</a>
+</body>
+</html>
