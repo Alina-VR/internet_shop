@@ -28,14 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/h2-console/**").hasRole(Role.ADMIN.getAuthority())
-            .antMatchers("/")
-            .permitAll()
+        http.authorizeRequests().antMatchers("/h2-console/**").hasRole("ADMIN")
+            .antMatchers("/").permitAll()
+            .antMatchers("/menu", "/product/**").permitAll()
             //                    .antMatchers("/product/**", "/images/**", "/registration", "/doRegister", "/doRegister2", "/h2-console", "/h2-console/**")
             //                    .permitAll()
             .antMatchers(HttpMethod.POST, "/doRegister").permitAll()
-            .antMatchers("/registration").permitAll().anyRequest().hasRole(Role.USER.getAuthority()).and().formLogin()
-            .loginPage("/login").loginProcessingUrl("/login_process").successForwardUrl("/").usernameParameter("email")
+            .antMatchers("/registration").permitAll().anyRequest().hasRole("USER").and().formLogin()
+            .loginPage("/login").loginProcessingUrl("/login_process").permitAll().defaultSuccessUrl("/").usernameParameter("name")
             .passwordParameter("password").permitAll().and().csrf().disable();
         //                    .anyRequest().hasRole(Role.USER.getAuthority())
         //                .and()

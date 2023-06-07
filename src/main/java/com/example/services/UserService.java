@@ -1,6 +1,8 @@
 package com.example.services;
 
 import com.example.models.Role;
+import static com.example.models.Role.ADMIN;
+import static com.example.models.Role.USER;
 import com.example.models.User;
 //import com.example.models.Role;
 import com.example.repositories.UserRepository;
@@ -24,9 +26,9 @@ public class UserService {
         if (userRepository.findByName(name) != null) return false;
         user.setActive(true);
         if (name.equals("admin")){
-            user.getRoles().add(Role.ADMIN);
+            user.getRoles().add(ADMIN);
         } else {
-            user.getRoles().add(Role.USER);
+            user.getRoles().add(USER);
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         log.info("Saving new User: {}", name);
