@@ -7,7 +7,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -19,7 +18,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -58,8 +56,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Product> products = new ArrayList<>();
+    //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    //    private List<Product> products = new ArrayList<>();
     private LocalDateTime dateOfCreated;
     @Transient
     private String passwordConfirm;
@@ -78,16 +76,16 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
-        }
-        return authorities;
+//        List<GrantedAuthority> authorities = new ArrayList<>();
+//        for (Role role : roles) {
+//            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
+//        }
+        return roles;
     }
 
     @Override
     public String getUsername() {
-        return email;
+        return name;
     }
 
     @Override
@@ -109,6 +107,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }

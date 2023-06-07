@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserService userService;
+//    @Autowired
+    private final UserService userService;
 //
 //    @GetMapping("/login")
 //    public String login() {

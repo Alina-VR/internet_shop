@@ -14,6 +14,7 @@
     <groupId>org.example</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <url>https://gitlab.com/errmad/internetshop/mvnsite</url>
     <name>InternetShop</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -21,6 +22,16 @@
         <compile.release.version>17</compile.release.version>
 <!--        <vaadin.version>23.3.7</vaadin.version>-->
     </properties>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <dependencies>
         <dependency>
@@ -202,6 +213,17 @@
                             <version>1.16.22</version>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                    <generateReports>false</generateReports>
                 </configuration>
             </plugin>
 
