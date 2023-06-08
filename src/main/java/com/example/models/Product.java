@@ -7,52 +7,46 @@ import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
-
-//import java.time.LocalDateTime;
-
+/**
+ * Класс товаров.
+ */
 @Entity
 @Table(name = "products")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
+
+    /**
+     * Идентификатор товара.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
+    /**
+     * Название товара.
+     */
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description" /*,columnDefinition = "text"*/)
+    /**
+     * Описание товара.
+     */
+    @Column(name = "description")
     private String description;
 
+    /**
+     * Цена товара.
+     */
     @Column(name = "price")
     private int price;
 
+    /**
+     * Продавец.
+     */
     @Column(name = "seller")
     private String seller;
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-//        mappedBy = "product")
-//    private List<Image> images = new ArrayList<>();
-//    private Long previewImageId;
-//    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-//    @JoinColumn
-//    private User user;
-//    private LocalDateTime dateOfCreated;
-//
-//    @PrePersist
-//    private void init() {
-//        dateOfCreated = LocalDateTime.now();
-//    }
 
-
-//    public void addImageToProduct(Image image) {
-//        image.setProduct(this);
-//        images.add(image);
-//    }
-
-//    String getInformation() {
-//
-//    }
 }

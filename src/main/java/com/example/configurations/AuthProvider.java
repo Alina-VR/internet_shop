@@ -16,6 +16,9 @@ import org.springframework.stereotype.Component;
 import com.example.models.User;
 import com.example.repositories.UserRepository;
 
+/**
+ * Класс, используемый аутенфикации пользователей.
+ */
 @Component
 public class AuthProvider implements AuthenticationProvider
 {

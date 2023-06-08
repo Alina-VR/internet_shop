@@ -15,54 +15,54 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Товарный сервис, содержащий методы работы с товарами.
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-    private final UserRepository userRepository;
 
+    /**
+     * Выводит список товаров.
+     *
+     * @param title объект String, то есть название товар.
+     *
+     * @return список товаров.
+     */
     public List<Product> listProducts(String title){
         if (title != null) return productRepository.findByTitle(title);
        return productRepository.findAll();
     }
 
-//    public void saveProduct(Principal principal, Product product, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws
-//        IOException {
-//    public void saveProduct(Principal principal, Product product) {
-        public void saveProduct(Product product) {
-//        product.setUser(getUserByPrincipal(principal));
-//        Image image1;
-//        Image image2;
-//        Image image3;
-//        if (file1.getSize() != 0) {
-//            image1 = toImageEntity(file1);
-//            image1.setPreviewImage(true);
-//            product.addImageToProduct(image1);
-//        }
-//        if (file2.getSize() != 0) {
-//            image2 = toImageEntity(file2);
-//            product.addImageToProduct(image2);
-//        }
-//        if (file3.getSize() != 0) {
-//            image3 = toImageEntity(file3);
-//            product.addImageToProduct(image3);
-//        }
+    /**
+     * Сохраняет товар.
+     *
+     * @param product объект Product, то есть товар.
+     */
+    public void saveProduct(Product product) {
         log.info("Saving new Product. Title: {}; Author email: {}", product.getTitle(), product.getSeller());
         Product productFromDb = productRepository.save(product);
-//        productFromDb.setPreviewImageId(productFromDb.getImages().get(0).getId());
         productRepository.save(product);
     }
 
-//    public User getUserByPrincipal(Principal principal) {
-//        if (principal == null) return new User();
-//        return userRepository.findByEmail(principal.getName());
-//    }
-
+    /**
+     * Удаляет товар.
+     *
+     * @param id объект Long, то есть идентификатор товара.
+     */
     public void deleteProduct(Long id){
         productRepository.deleteById(id);
     }
 
+    /**
+     * Получает товар по идентификатору.
+     *
+     * @param id объект Long, то есть идентификатор товара.
+     *
+     * @return product объект Product, то есть товар.
+     */
     public Product getProductById(Long id){
        return  productRepository.findById(id).orElse(null);
     }
