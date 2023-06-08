@@ -36,8 +36,14 @@ public class LoginTest {
 //    }
 
     @Test
-    public void accessDeniedTest() throws Exception {
+    public void accessDeniedToMenuTest() throws Exception {
         this.mockMvc.perform(get("/menu"))
+            .andDo(print())
+            .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void accessDeniedToProductsTest() throws Exception {
+        this.mockMvc.perform(get("/menu/product"))
             .andDo(print())
             .andExpect(status().is4xxClientError());
     }
