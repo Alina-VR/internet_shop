@@ -5,6 +5,8 @@ import com.example.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -57,10 +59,15 @@ public class UserController {
 //        return "redirect:/";
 //    }
 
-        @GetMapping("/login")
-        public String login() {
+    @GetMapping("/login")
+    public String login() {
+
+        if (SecurityContextHolder.getContext().getAuthentication().getAuthorities()
+            .containsAll(AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS"))) {
             return "login";
         }
+        return "redirect:/";
+    }
 
 //        @PostMapping("/login")
 //        public String enter(){
