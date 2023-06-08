@@ -1,6 +1,5 @@
 package com.example.models;
 
-//import com.vaadin.flow.component.html.Image;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -29,57 +28,81 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Класс пользователей.
+ */
 @Entity
 @Table(name = "users")
 @Data
 public class User implements UserDetails {
+
+    /**
+     * Идентификатор пользователя.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    /**
+     * Почта пользователя.
+     */
     @Column(name = "email", unique = true)
     private String email;
+
+    /**
+     * Номер телефона пользователя.
+     */
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    /**
+     * Имя пользователя.
+     */
     @Column(name = "name")
     private String name;
+
+    /**
+     * Статус активности пользователя.
+     */
     @Column(name = "active")
     private boolean active;
-    //    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //    @JoinColumn(name = "image_id")
-    //    private Image avatar;
+
+    /**
+     * Пароль пользователя.
+     */
     @Column(name = "password", length = 1000)
     private String password;
 
+    /**
+     * Роли пользователя.
+     */
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
 
-    //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    //    private List<Product> products = new ArrayList<>();
+    /**
+     * Дата и время создания профиля пользователя.
+     */
     private LocalDateTime dateOfCreated;
+
+    /**
+     * Хэш пароля пользователя.
+     */
     @Transient
     private String passwordConfirm;
 
+    /**
+     * Устанавливает время создания.
+     */
     @PrePersist
     private void init() {
         dateOfCreated = LocalDateTime.now();
     }
 
-    // security
-    //
-    //    @Override
-    //    public Collection<? extends GrantedAuthority> getAuthorities() { //TODO: не поняла, что с этим делать, класс role не видит, в принципе нужно секьюрити
-    //        return roles;
-    //    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        List<GrantedAuthority> authorities = new ArrayList<>();
-//        for (Role role : roles) {
-//            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
-//        }
         return roles;
     }
 
