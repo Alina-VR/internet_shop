@@ -25,19 +25,16 @@ public class LoginTest {
     @Autowired
     private MockMvc mockMvc;
 
-//    @Autowired
-//    private HomePageController controller;
-
-//    @Test
-//    public void test() throws Exception {
-//        this.mockMvc.perform(get("/")).andDo(print())
-//            .andExpect(status().isOk())
-//            .andExpect(content().string(containsString("Hello, Guest!")));
-//    }
 
     @Test
-    public void accessDeniedTest() throws Exception {
+    public void accessDeniedToMenuTest() throws Exception {
         this.mockMvc.perform(get("/menu"))
+            .andDo(print())
+            .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void accessDeniedToProductsTest() throws Exception {
+        this.mockMvc.perform(get("/menu/product"))
             .andDo(print())
             .andExpect(status().is4xxClientError());
     }
@@ -48,4 +45,5 @@ public class LoginTest {
             .andExpect(status().isForbidden());
     }
 }
+
 
