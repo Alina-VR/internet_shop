@@ -21,37 +21,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthProvider authProvider;
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("admin").password("pass").roles("ADMIN");
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/h2-console/**").hasAuthority(Role.ADMIN.getAuthority())
-            .antMatchers("/").permitAll()
-            .antMatchers("/menu", "/menu/**").hasAnyAuthority(Role.ADMIN.getAuthority(), Role.USER.getAuthority())
-            //                    .antMatchers("/product/**", "/images/**", "/registration", "/doRegister", "/doRegister2", "/h2-console", "/h2-console/**")
-            //                    .permitAll()
-            .antMatchers(HttpMethod.POST, "/doRegister").permitAll()
-            .antMatchers("/registration").permitAll().anyRequest().hasAuthority(Role.USER.getAuthority()).and().formLogin()
-            .loginPage("/login").loginProcessingUrl("/login_process").permitAll().defaultSuccessUrl("/").usernameParameter("name")
+        http.authorizeRequests().antMatchers("/h2-console/**").hasAuthority(Role.ADMIN.getAuthority()).antMatchers("/")
+            .permitAll().antMatchers("/menu", "/menu/**")
+            .hasAnyAuthority(Role.ADMIN.getAuthority(), Role.USER.getAuthority())
+            .antMatchers(HttpMethod.POST, "/doRegister").permitAll().antMatchers("/registration").permitAll()
+            .anyRequest().hasAuthority(Role.USER.getAuthority()).and().formLogin().loginPage("/login")
+            .loginProcessingUrl("/login_process").permitAll().defaultSuccessUrl("/").usernameParameter("name")
             .passwordParameter("password").permitAll().and().csrf().disable();
-        //                    .anyRequest().hasRole(Role.USER.getAuthority())
-        //                .and()
-        //                    .formLogin()
-        //                    .loginPage("/login")
-        //                    .permitAll()
-//                        .and()
-//                            .logout()
-//                            .permitAll();
+
     }
 
-        @Override
-        protected void configure(AuthenticationManagerBuilder auth) throws Exception
-        {
-            auth.authenticationProvider(authProvider).userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-        }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authProvider).userDetailsService(userDetailsService)
+            .passwordEncoder(passwordEncoder());
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

@@ -45,9 +45,6 @@ public class User implements UserDetails {
     private String name;
     @Column(name = "active")
     private boolean active;
-    //    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //    @JoinColumn(name = "image_id")
-    //    private Image avatar;
     @Column(name = "password", length = 1000)
     private String password;
 
@@ -55,9 +52,6 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
-
-    //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    //    private List<Product> products = new ArrayList<>();
     private LocalDateTime dateOfCreated;
     @Transient
     private String passwordConfirm;
@@ -67,19 +61,8 @@ public class User implements UserDetails {
         dateOfCreated = LocalDateTime.now();
     }
 
-    // security
-    //
-    //    @Override
-    //    public Collection<? extends GrantedAuthority> getAuthorities() { //TODO: не поняла, что с этим делать, класс role не видит, в принципе нужно секьюрити
-    //        return roles;
-    //    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        List<GrantedAuthority> authorities = new ArrayList<>();
-//        for (Role role : roles) {
-//            authorities.add(new SimpleGrantedAuthority(role.getAuthority()));
-//        }
         return roles;
     }
 
