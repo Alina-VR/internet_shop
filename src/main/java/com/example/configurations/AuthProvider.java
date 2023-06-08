@@ -1,20 +1,17 @@
 package com.example.configurations;
 
-import java.util.Collection;
-
+import com.example.models.User;
+import com.example.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.example.models.User;
-import com.example.repositories.UserRepository;
+import java.util.Collection;
 
 /**
  * Класс, используемый аутенфикации пользователей.

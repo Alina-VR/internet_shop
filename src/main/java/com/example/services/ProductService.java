@@ -1,19 +1,11 @@
 package com.example.services;
 
 import com.example.models.Product;
-import com.example.models.User;
 import com.example.repositories.ProductRepository;
-import com.example.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Товарный сервис, содержащий методы работы с товарами.
